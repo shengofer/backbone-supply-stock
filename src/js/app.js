@@ -12,8 +12,7 @@
 define([
   'backbone',
   'views/app',
-  'router',
-  'views/FooterView'
+  'router'
 ], function (Backbone, AppView, Router, FooterView) {
 
   var initialize = function() {
