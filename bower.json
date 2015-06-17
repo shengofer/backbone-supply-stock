@@ -1,5 +1,5 @@
 {
-  "name": "contact-manager-backbone",
+  "name": "backbone-supply-stock",
   "version": "1.0.0",
   "dependencies": {
     "sass-bootstrap": "~3.0.2",
