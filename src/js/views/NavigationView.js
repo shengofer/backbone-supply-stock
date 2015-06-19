@@ -7,11 +7,12 @@ define([
 ], function($, _, Backbone,  navTemplate){
 
     var NavigatorView = Backbone.View.extend({
-        el: $('.main-container'),
+        el: $('.header'),
 
         render: function(){
             var compiledTemplate = _.template( navTemplate);
             this.$el.html(compiledTemplate);
+            return this;
         }
 
     });

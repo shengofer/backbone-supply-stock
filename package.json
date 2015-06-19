@@ -30,7 +30,6 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
-    "start": "node server.js",
-    "build": "bower install"
+    "start": "node server.js"
   }
 }

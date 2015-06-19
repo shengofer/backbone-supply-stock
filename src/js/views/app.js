@@ -30,6 +30,8 @@ define([
         view.unbind();
         view.$el.slideToggle(500, function(){
           $(this).remove();
+            //$(this).remove();
+         //   view.$el.remove()
         });
       }
     }
