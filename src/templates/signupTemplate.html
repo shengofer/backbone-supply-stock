@@ -1,33 +1,44 @@
-<div class="col-md-5 well well-lg text-center">
-    <h1>Signup</h1>
-    <div class="height:50px;">
-        <ul id="signup-errors" class="parsley-error-list"></ul>
+<h2 class="page-header text-center">Please,sign up, dear User!</h2>
+<form role="form" class="form-horizontal contact-form">
+    <div class="form-group has-feedback form-group-name">
+        <label class="col-sm-4 control-label">Username:</label>
+        <div class="col-sm-6">
+            <input class="form-control" type="text" id="signup-username-input" name="username" placeholder="Username"
+                   data-required="true" data-notblank="true">
+            <small class="help-block"></small>
+        </div>
     </div>
-    <form id="signup-form" class="form" data-validate="parsley">
-        <fieldset>
-            <div class="control-group">
-                <div class="controls">
-                    <input type="text" id="signup-username-input" name="username" placeholder="Username" value="<%= user.username || '' %>"
-                           data-required="true" data-notblank="true">
-                    <span class="help-block"></span>
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <input class="input-medium" type="password" id="signup-password-input" placeholder="Password" name="user_password"
-                           value="" data-required="true" data-notblank="true" data-rangelength="[5,25]">
-                    <span class="help-block"></span>
-                </div>
-            </div>
-            <div class="control-group mb20">
-                <div class="controls">
-                    <input class="input-medium" type="password" id="signup-password-confirm-input" placeholder="Confirm Password" name="user_password"
-                           value="" data-required="true" data-notblank="true" data-rangelength="[5,25]" data-equalto="#signup-password-input">
-                    <span class="help-block"></span>
-                </div>
-            </div>
-            <a href="#" id="signup-btn" class="btn btn-primary btn-lg" data-bypass>Signup</a>
+    <div class="form-group has-feedback form-group-email">
+        <label class="col-sm-4 control-label">Email address:</label>
+        <div class="col-sm-6">
+            <input type="email" class="form-control contact-email-input" placeholder="email">
+            <small class="help-block"></small>
+        </div>
+    </div>
 
-        </fieldset>
-    </form>
-</div>
+    <div class="form-group control-group">
+        <label class="col-sm-4 control-label">Password:</label>
+        <div class="col-sm-6">
+            <input class="input-medium form-control" type="password" id="signup-password-input" placeholder="Password" name="user_password"
+                   value="" data-required="true" data-notblank="true" data-rangelength="[5,25]">
+            <span class="help-block"></span>
+        </div>
+    </div>
+    <div class="form-group control-group mb20">
+        <label class="col-sm-4 control-label">Confirm password:</label>
+        <div class="col-sm-6">
+            <input class="input-medium form-control" type="password" id="signup-password-confirm-input" placeholder="Confirm Password" name="user_password"
+                   value="" data-required="true" data-notblank="true" data-rangelength="[5,25]" data-equalto="#signup-password-input">
+            <span class="help-block"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-3">
+            <button type="submit" class="btn btn-outline btn-lg btn-block">Submit</button>
+        </div>
+        <div class="col-sm-3">
+            <button class="btn-close-form btn btn-outline btn-lg btn-block">Cancel</button>
+        </div>
+    </div>
+</form>

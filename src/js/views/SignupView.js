@@ -2,10 +2,10 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!../../templates/signupTemplate2.html'
+    'text!../../templates/signupTemplate.html'
 ], function ($, _, Backbone, signupTemplate) {
 
-    var EditContactView = Backbone.View.extend({
+    var SignupView = Backbone.View.extend({
         template: _.template(signupTemplate),
 
         initialize: function () {
@@ -22,12 +22,10 @@ define([
 
         render: function () {
             this.$el.empty();
-            var html = this.template(_.extend(this.model.toJSON(), {
-                isNew: this.model.isNew()
-            }));
+            var html = this.template(_.extend(this.model.toJSON()));
            // this.$el.append(html);
             this.$el.html(html);
-          //  return this;
+            return this;
         },
 
         onFormSubmit: function (e) {
@@ -65,5 +63,5 @@ define([
         }
     });
 
-    return EditContactView;
+    return SignupView;
 });

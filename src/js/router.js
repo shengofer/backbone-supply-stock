@@ -4,11 +4,11 @@ define([
     'underscore',
     'backbone',
     'views/NavigationView',
-    'models/contact',
-    'views/editcontact',
+    'views/SignupView',
     'views/loginView',
-    'views/HomeView'
-], function ($, _, Backbone, NavigationView, ContactModel, EditContactView, LoginView, HomeView) {
+    'views/HomeView',
+    'models/UserModel'
+], function ($, _, Backbone, NavigationView,SignupView, LoginView, HomeView, UserModel) {
 
     var Router = Backbone.Router.extend({
         routes: {
@@ -20,9 +20,7 @@ define([
         initialize: function (options) {
             var navigationView = new NavigationView();
             navigationView.render();
-          // this.homeView = new HomeView();
             this.appView = options.view;
-          //  this.appView.setViews(this.homeView);
         },
 
         home: function () {
@@ -31,23 +29,10 @@ define([
         },
 
         signup: function () {
-            var createContactsView = new EditContactView({
-                model: new ContactModel()
+            var signupView = new SignupView({
+                model: new UserModel()
             });
-            this.appView.setViews(createContactsView);
-
-            /*  createContactsView.on('form:submitted', function(attrs) {
-             attrs.id = this.collection.isEmpty() ? 1 : (_.max(this.collection.pluck('id')) + 1);
-             var newContact = new ContactModel(attrs);
-             var modelError = newContact.isValid();
-             if(modelError !== false) {
-             this.collection.add(newContact);
-             newContact.save();
-             App.router.navigate('home', true);
-             }
-             }, this);
-
-             createContactsView.on('form:close', this.contactFormClose);*/
+            this.appView.setViews(signupView);
         },
 
         login: function () {

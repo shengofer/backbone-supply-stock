@@ -1,8 +1,7 @@
 define([
     "app",
-
     'text!../../templates/loginTemplate.html'
-], function(app, loginTemplate, LoginPageTpl){
+], function(app, loginTemplate ){
 
     var LoginView = Backbone.View.extend({
         el: $('.main-container'),
@@ -63,7 +62,6 @@ define([
            // this.$el.append(html);
             this.$el.html(html);
             return this;
-           // return this;
         }
 
     });

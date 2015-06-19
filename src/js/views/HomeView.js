@@ -7,7 +7,6 @@ define([
 ], function($, _, Backbone,  navTemplate){
 
     var HomeView = Backbone.View.extend({
-        //el: $('.main-container'),
 
         render: function(){
             this.$el.empty();
