@@ -31,9 +31,9 @@ define([
         onFormSubmit: function (e) {
             e.preventDefault();
             var attrs = {
-                name: this.$('.contact-name-input').val(),
-                phone: this.$('.contact-phone-input').val(),
-                email: this.$('.contact-email-input').val()
+                name: this.$('#signup-username-input').val(),
+                password: this.$('#signup-password-input').val(),
+                email: this.$('#signup-email-input').val()
             };
 
             if (this.model.isNew()) {

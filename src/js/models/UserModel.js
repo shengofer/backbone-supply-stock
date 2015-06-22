@@ -29,7 +29,7 @@ define([
             if (!$.trim(attrs.name)) {
                 errors.push({name: 'username', message: 'Please enter the username field.'});
             }
-            if (!$.trim(attrs.phone)) {
+            if (!$.trim(attrs.password)) {
                 errors.push({name: 'password', message: 'Please enter the password field.'});
             }
             if (!$.trim(attrs.email) || !this.validateEmail(attrs.email)) {
