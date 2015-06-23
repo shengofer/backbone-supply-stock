@@ -1,12 +1,12 @@
 define([
     'backbone',
     'models/UserModel',
-   // 'localstorage'
+    'localstorage'
 ], function (Backbone, UserModel) {
 
     var UserCollection = Backbone.Collection.extend({
         model: UserModel,
-       // localStorage: new Backbone.LocalStorage("users"),
+        localStorage: new Backbone.LocalStorage("Users"),
 
         search: function (letters) {
             var pattern = new RegExp(letters, "gi");

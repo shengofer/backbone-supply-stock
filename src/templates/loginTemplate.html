@@ -1,10 +1,10 @@
 <h2 class="page-header text-center">Please, login, dear User!</h2>
-<form role="form" class="form-horizontal contact-form">
+<form role="form" class="form-horizontal contact-form" id="login-form">
 
     <div class="form-group has-feedback form-group-email">
         <label class="col-sm-4 control-label">Email address:</label>
         <div class="col-sm-6">
-            <input type="email" class="form-control contact-email-input" placeholder="email">
+            <input type="email" class="form-control contact-email-input" id="login-email-input" placeholder="email">
             <small class="help-block"></small>
         </div>
     </div>
@@ -12,7 +12,7 @@
     <div class="form-group control-group">
         <label class="col-sm-4 control-label">Password:</label>
         <div class="col-sm-6">
-            <input class="input-medium form-control" type="password" id="signup-password-input" placeholder="Password" name="user_password"
+            <input class="input-medium form-control" type="password" id="login-password-input" placeholder="Password" name="user_password"
                    value="" data-required="true" data-notblank="true" data-rangelength="[5,25]">
             <span class="help-block"></span>
         </div>
@@ -20,7 +20,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-3">
-            <button type="submit" class="btn btn-outline btn-lg btn-block">Login</button>
+            <button type="submit" class="btn btn-outline btn-lg btn-block" id="login-btn">Login</button>
         </div>
     </div>
 </form>

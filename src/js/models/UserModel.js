@@ -12,7 +12,7 @@ define([
         },
 
         defaults: {
-            id: 0,
+           // id: 0,
             username: '',
             name: '',
             email: '',

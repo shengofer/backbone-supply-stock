@@ -5,32 +5,36 @@ define([
     'backbone',
     'views/NavigationView',
     'views/SignupView',
-    'views/loginView',
+    'views/LoginView',
     'views/HomeView',
     'models/UserModel',
-    'collections/UserCollection'
-], function ($, _, Backbone, NavigationView,SignupView, LoginView, HomeView, UserModel, UserColleciton) {
+    'collections/UserCollection',
+    'static'
+], function ($, _, Backbone, NavigationView,SignupView, LoginView, HomeView, UserModel, UserColleciton,app) {
 
     var Router = Backbone.Router.extend({
         routes: {
             '': 'home',
             'home': 'home',
             'signup': 'signup',
-            'login': 'login'
+            'login': 'login',
+            'logout': 'logout'
         },
         initialize: function (options) {
-            var navigationView = new NavigationView();
-            navigationView.render();
+        /*    var navigationView = new NavigationView();
+            navigationView.render();*/
             this.appView = options.view;
         },
 
         home: function () {
+            var navigationView = new NavigationView();
+            navigationView.render();
             var homeView = new HomeView();
             this.appView.setViews(homeView);
+
         },
 
         signup: function () {
-            //var contact = this.collection.get(id);
             var signupView = new SignupView({
                 model: new UserModel()
             });
@@ -44,26 +48,24 @@ define([
                 if(modelError !== false) {
                     userCollection.add(userModel);
                     userModel.save();
-                   // this.routes.navigate()
-                    window.location.hash = 'home';
-                    //App.router.navigate('home', true);
+                    window.location.hash = 'login';
                 }
             }, this);
+            signupView.on('form:close', this.signupFormClose);
+        },
 
-           // signupView.on('form:close', this.contactFormClose);
-        /*    signupView.on('form:submitted', function(attrs) {
-                var modelError = contact.save(attrs, {validate:true});
-                if(modelError !== false) {
-                    App.router.navigate('home', true);
-                }
-            });
-
-            editContactsView.on('form:close', this.contactFormClose);*/
+        signupFormClose: function() {
+            window.location.hash = 'home';
         },
 
         login: function () {
             var createLoginView = new LoginView();
             this.appView.setViews(createLoginView);
+        },
+
+        logout: function(){
+            app.session.logout();
+            window.location.hash = 'home';
         }
     });
 

@@ -10,18 +10,31 @@ require.config({
 
     }
 });
+
+
 define([
     'backbone',
     'views/AppView',
     'router',
-    'localstorage'
-], function (Backbone, AppView, Router, lclStr) {
+    'models/SessionModel'
+], function (Backbone, AppView, Router, SessionModel) {
+
+
+    var app = {
+        session : new SessionModel({})
+    }
+
+
     // Just use GET and POST to support all browsers
     Backbone.emulateHTTP = true;
+    // Create a new session model and scope it to the app global
+    // This will be a singleton, which other modules can access
 
 
     var appView = new AppView();
     var router = new Router({view: appView});
     Backbone.history.start();
 
+
+    return app;
 });
