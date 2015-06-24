@@ -1,8 +1,9 @@
 # backbone-supply-stock
 
-backboneb supply stock
+backbone supply stock
 
-
+##backbone supply stock application
+Maybe live demo: [https://supply-stock-backbone.herokuapp.com](https://supply-stock-backbone.herokuapp.com)
 ## Setup
 
 1. Install [node.js](http://nodejs.org)
