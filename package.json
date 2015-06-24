@@ -49,8 +49,5 @@
     "gulp-ruby-sass": "^1.0.5",
     "gulp-sass": "^2.0.1",
     "vinyl-source-stream": "^1.1.0"
-  },
-  "scripts": {
-    "start": "node server.js"
   }
 }
