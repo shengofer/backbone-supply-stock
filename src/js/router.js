@@ -9,8 +9,8 @@ define([
     'views/HomeView',
     'models/UserModel',
     'collections/UserCollection',
-    'static'
-], function ($, _, Backbone, NavigationView,SignupView, LoginView, HomeView, UserModel, UserColleciton,app) {
+    'Global'
+], function ($, _, Backbone, NavigationView,SignupView, LoginView, HomeView, UserModel, UserCollection,app) {
 
     var Router = Backbone.Router.extend({
         routes: {
@@ -21,8 +21,6 @@ define([
             'logout': 'logout'
         },
         initialize: function (options) {
-        /*    var navigationView = new NavigationView();
-            navigationView.render();*/
             this.appView = options.view;
         },
 
@@ -31,6 +29,14 @@ define([
             navigationView.render();
             var homeView = new HomeView();
             this.appView.setViews(homeView);
+       /*     if (app.session.user){
+
+            }
+            else {
+                var homeView = new HomeView();
+                this.appView.setViews(homeView);
+            }*/
+
 
         },
 
@@ -41,12 +47,14 @@ define([
             this.appView.setViews(signupView);
 
             signupView.on('form:submitted', function(attrs) {
-                var userCollection = new UserColleciton();
-                attrs.id = userCollection.isEmpty() ? 1 : (_.max(this.collection.pluck('id')) + 1);
+                //var userCollection = new UserCollection();
+                var isEmptyCol = app.userCollection.isEmpty();
+                //var isempty = this.collection.isEmpty();
+                attrs.id = isEmptyCol ? 1 : (_.max(app.userCollection.pluck('id')) + 1);
                 var userModel = new UserModel(attrs);
                 var modelError = userModel.isValid();
                 if(modelError !== false) {
-                    userCollection.add(userModel);
+                    app.userCollection.add(userModel);
                     userModel.save();
                     window.location.hash = 'login';
                 }

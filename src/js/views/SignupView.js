@@ -23,7 +23,6 @@ define([
         render: function () {
             this.$el.empty();
             var html = this.template(_.extend(this.model.toJSON()));
-           // this.$el.append(html);
             this.$el.html(html);
             return this;
         },

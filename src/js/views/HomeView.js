@@ -4,17 +4,25 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    '../static',
-    'text!../../templates/homeTemplate.html'
-], function($, _, Backbone,app,  navTemplate){
+    '../Global',
+    'text!../../templates/homeTemplate.html',
+    'text!../../templates/logedHomeTemplate.html'
+], function($, _, Backbone,app,  homeTemplate, logedHomeTemplate){
 
     var HomeView = Backbone.View.extend({
 
         render: function(){
             this.$el.empty();
-
-            var compiledTemplate = _.template( navTemplate);
-            this.$el.html(compiledTemplate);
+            var compiledTemplate;
+            var userSession = app.session.user;
+            if(app.session.isAuth()){
+                compiledTemplate = _.template( logedHomeTemplate);
+            }
+            else{
+                compiledTemplate = _.template( homeTemplate);
+            }
+           // var compiledTemplate = _.template( homeTemplate);
+            this.$el.html(compiledTemplate({user:userSession}));
             return this;
         }
 

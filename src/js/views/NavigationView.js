@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    '../static',
+    '../Global',
     'text!../../templates/navTemplate.html',
     'text!../../templates/logedUserNavTemplate.html',
 ], function($, _, Backbone,app,  navTemplate, logedNavTemplate){
@@ -12,8 +12,10 @@ define([
         el: $('.header'),
 
         render: function(){
+            this.$el.empty();
+            var isLogin = app.session.isAuth();
             var compiledTemplate;
-            if(app.session.isAuth()){
+            if(isLogin){
                 compiledTemplate = _.template( logedNavTemplate);
             }
             else{
