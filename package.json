@@ -4,7 +4,12 @@
   "description": "supply stock using backbone",
   "main": "index.js",
   "scripts": {
-    "test": "run test"
+    "start": "node server",
+    "postinstall": "bower install && gulp build",
+    "test": "gulp tdd"
+  },
+  "engines": {
+    "node": "0.12.x"
   },
   "keywords": [
     "backbone",
@@ -13,6 +18,22 @@
   ],
   "author": "Pavlo Shenhofer",
   "license": "ISC",
+  "dependencies": {
+    "amd-optimize": "^0.4.4",
+    "body-parser": "^1.13.1",
+    "bower": "^1.4.1",
+    "browser-sync": "^2.7.12",
+    "browserify": "^10.2.4",
+    "del": "^1.2.0",
+    "ejs": "^2.3.1",
+    "express": "^4.12.4",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-minify-css": "^1.1.6",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-sass": "^2.0.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
   "devDependencies": {
     "amd-optimize": "^0.4.4",
     "body-parser": "^1.13.1",
