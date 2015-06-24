@@ -25,15 +25,16 @@ define([
             var userCollection = new UserCollection();
             userCollection.find({email: user.email, password: user.password}, function (user) {
                 this.user = user;
-                this.logged_in = true;
+               // this.logged_in = true;
+                this.attributes.logged_in = true;
                 window.location.hash = 'home';
                 return this.logged_in;
-            });
+            }.bind(this));
 
         },
 
         isAuth: function () {
-            return this.logged_in;
+            return   this.attributes.logged_in;
         },
 
         postAuth: function (user) {
@@ -46,7 +47,7 @@ define([
         },
         logout: function () {
             this.user = null;
-            this.logged_in = false;
+            this.attributes.logged_in = false;
         }
 
     });

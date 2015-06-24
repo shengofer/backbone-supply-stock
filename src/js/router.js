@@ -29,15 +29,6 @@ define([
             navigationView.render();
             var homeView = new HomeView();
             this.appView.setViews(homeView);
-       /*     if (app.session.user){
-
-            }
-            else {
-                var homeView = new HomeView();
-                this.appView.setViews(homeView);
-            }*/
-
-
         },
 
         signup: function () {
@@ -47,9 +38,8 @@ define([
             this.appView.setViews(signupView);
 
             signupView.on('form:submitted', function(attrs) {
-                //var userCollection = new UserCollection();
                 var isEmptyCol = app.userCollection.isEmpty();
-                //var isempty = this.collection.isEmpty();
+
                 attrs.id = isEmptyCol ? 1 : (_.max(app.userCollection.pluck('id')) + 1);
                 var userModel = new UserModel(attrs);
                 var modelError = userModel.isValid();
